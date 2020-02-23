@@ -1,3 +1,4 @@
+#
 forge 'http://forge.puppetlabs.com'
 
 def default_branch(default)
@@ -28,7 +29,7 @@ mod 'puppetlabs-docker', '3.5.0'
 mod 'puppetlabs-dsc', '1.8.0'
 mod 'puppetlabs-exec', '0.3.0'
 mod 'puppetlabs-facter_task', '0.4.0'
-mod 'puppetlabs-firewall', '1.15.1'
+mod 'puppetlabs-firewall', '2.1.0'
 mod 'puppetlabs-gcc', '0.3.0'
 mod 'puppetlabs-git', '0.5.0'
 mod 'puppetlabs-haproxy', '3.0.1'
@@ -122,7 +123,7 @@ mod 'puppetlabs-host_core', '1.0.2'
 # replaces mod 'puppet-splunk', '7.3.0' until there is a newer release
 mod 'splunk',
     git: 'https://github.com/voxpupuli/puppet-splunk.git',
-    ref: 'e9500e74f8d1d0f32dd0e68f8cba1662256c39be'
+    ref: 'master'
 
 mod 'tse-tse_facts',
     git: 'https://github.com/puppetlabs/tse-module-tse_facts.git',
