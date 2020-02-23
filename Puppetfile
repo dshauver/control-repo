@@ -1,4 +1,14 @@
+#
 forge 'http://forge.puppetlabs.com'
+
+def default_branch(default)
+  begin
+    match = /(.+)_(cdpe|cdpe_ia)_\d+$/.match(@librarian.environment.name)
+    match ? match[1]:default
+  rescue
+    default
+  end
+end
 
 # Modules from the Puppet Forge
 # Versions should be updated to be the latest at the time you start
@@ -8,7 +18,7 @@ mod 'puppetlabs-apt', '6.3.0'
 mod 'puppetlabs-aws', '2.1.0'
 mod 'puppetlabs-azure', '1.3.1'
 mod 'puppetlabs-bolt_shim', '0.3.0'
-mod 'puppetlabs-cd4pe', '1.2.3'
+mod 'puppetlabs-cd4pe', '1.3.0'
 mod 'puppetlabs-chocolatey', '3.3.0'
 mod 'puppetlabs-cisco_ios', '1.0.0'
 mod 'puppetlabs-ciscopuppet', '2.0.1'
@@ -19,7 +29,7 @@ mod 'puppetlabs-docker', '3.5.0'
 mod 'puppetlabs-dsc', '1.8.0'
 mod 'puppetlabs-exec', '0.3.0'
 mod 'puppetlabs-facter_task', '0.4.0'
-mod 'puppetlabs-firewall', '1.15.1'
+mod 'puppetlabs-firewall', '2.1.0'
 mod 'puppetlabs-gcc', '0.3.0'
 mod 'puppetlabs-git', '0.5.0'
 mod 'puppetlabs-haproxy', '3.0.1'
@@ -113,7 +123,7 @@ mod 'puppetlabs-host_core', '1.0.2'
 # replaces mod 'puppet-splunk', '7.3.0' until there is a newer release
 mod 'splunk',
     git: 'https://github.com/voxpupuli/puppet-splunk.git',
-    ref: 'e9500e74f8d1d0f32dd0e68f8cba1662256c39be'
+    ref: 'master'
 
 mod 'tse-tse_facts',
     git: 'https://github.com/puppetlabs/tse-module-tse_facts.git',
@@ -124,8 +134,9 @@ mod 'demo_cis',
     ref: '4e6b63b'
 
 mod 'rgbank',
-    git: 'https://github.com/puppetlabs-seteam/puppetlabs-rgbank.git',
-    ref: 'f00668d'
+    git:            'https://github.com/puppetlabs-seteam/puppetlabs-rgbank.git',
+    branch:         :control_branch,
+    default_branch: default_branch('master')
 
 mod 'jenkins',
     git: 'https://github.com/jenkinsci/puppet-jenkins.git',
